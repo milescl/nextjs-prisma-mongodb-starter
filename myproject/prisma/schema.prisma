@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+type CategoriesImages {
+  description String
+  kind        String
+  url         String
+}
+
+type ProductsFeatures {
+  name  String
+  value String
+}
+
+type ProductsImages {
+  description String
+  kind        String
+  url         String
+}
+
+type ProductsPhysical {
+  color      String
+  dimensions ProductsPhysicalDimensions
+  size       String
+  weight     ProductsPhysicalWeight
+}
+
+type ProductsPhysicalDimensions {
+  height Float
+  length Float
+  unit   String
+  width  Float
+}
+
+type ProductsPhysicalWeight {
+  unit  String
+  value Float
+}
+
+type ProductsReviews {
+  comment   String
+  createdAt DateTime @db.Date
+  stars     Int
+  userId    String   @db.ObjectId
+}
+
+model categories {
+  id          String             @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt   DateTime           @db.Date
+  description String
+  images      CategoriesImages[]
+  is_active   Boolean
+  name        String
+  owner       String             @db.ObjectId
+  parent      String?            @db.ObjectId
+  tags        String[]
+  updatedAt   DateTime           @db.Date
+}
+
+model products {
+  id          String             @id @default(auto()) @map("_id") @db.ObjectId
+  category    String
+  createdAt   DateTime           @db.Date
+  description String
+  features    ProductsFeatures[]
+  images      ProductsImages[]
+  is_active   Boolean
+  name        String
+  owner       String             @db.ObjectId
+  physical    ProductsPhysical
+  price       Int
+  reviews     ProductsReviews[]
+  stock       Int
+  tags        String[]
+  updatedAt   DateTime           @db.Date
+}
