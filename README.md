@@ -8,6 +8,13 @@ Starter MongoDB + Prisma + NextJS
 - Open a Terminal, pressing <kbd> CTRL </kbd> + <kbd> ALT </kbd> + <kbd> Ñ </kbd>
 - Go to project directory
 ```bash 
-cd myproject```
-- Run ```bash npm install ```
-- Run Project ```npm run dev```
+cd myproject
+```
+- Run 
+```bash
+npm install
+```
+- Run Project 
+```bash
+npm run dev
+```
