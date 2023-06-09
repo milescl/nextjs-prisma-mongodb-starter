@@ -19,3 +19,5 @@ npm install
 ```bash
 npm run dev
 ```
+
+You can see full documentation, to do it yourself on [course docs](https://github.com/milescl/courses/wiki/Javascript)
