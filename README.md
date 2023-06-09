@@ -10,7 +10,7 @@ Starter MongoDB + Prisma + NextJS
 ```bash 
 cd myproject
 ```
-- Run 
+- Install modules project
 ```bash
 npm install
 ```
